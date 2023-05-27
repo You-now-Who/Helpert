@@ -24,133 +24,130 @@ const NavBar = () => {
 
   return (
     <div className="nav-container" data-testid="navbar">
-      <Navbar color="light" light expand="md">
-        <Container>
-          <NavbarBrand className="logo" />
-          <NavbarToggler onClick={toggle} data-testid="navbar-toggle" />
-          <Collapse isOpen={isOpen} navbar>
-            <Nav className="mr-auto" navbar data-testid="navbar-items">
-              <NavItem>
-                <PageLink href="/" className="nav-link" testId="navbar-home">
-                  Home
-                </PageLink>
-              </NavItem>
-              {user && (
-                <>
-                  <NavItem>
-                    <PageLink href="/csr" className="nav-link" testId="navbar-csr">
-                      Client-side rendered page
-                    </PageLink>
-                  </NavItem>
-                  <NavItem>
-                    <PageLink href="/ssr" className="nav-link" testId="navbar-ssr">
-                      Server-side rendered page
-                    </PageLink>
-                  </NavItem>
-                  <NavItem>
-                    <PageLink href="/external" className="nav-link" testId="navbar-external">
-                      External API
-                    </PageLink>
-                  </NavItem>
-                </>
-              )}
-            </Nav>
-            <Nav className="d-none d-md-block" navbar>
-              {!isLoading && !user && (
-                <NavItem id="qsLoginBtn">
-                  <AnchorLink
-                    href="/api/auth/login"
-                    className="btn btn-primary btn-margin"
-                    tabIndex={0}
-                    testId="navbar-login-desktop">
-                    Log in
-                  </AnchorLink>
-                </NavItem>
-              )}
-              {user && (
-                <UncontrolledDropdown nav inNavbar data-testid="navbar-menu-desktop">
-                  <DropdownToggle nav caret id="profileDropDown">
-                    <img
-                      src={user.picture}
-                      alt="Profile"
-                      className="nav-user-profile rounded-circle"
-                      width="50"
-                      height="50"
-                      decode="async"
-                      data-testid="navbar-picture-desktop"
-                    />
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    <DropdownItem header data-testid="navbar-user-desktop">
-                      {user.name}
-                    </DropdownItem>
-                    <DropdownItem className="dropdown-profile" tag="span">
-                      <PageLink href="/profile" icon="user" testId="navbar-profile-desktop">
-                        Profile
-                      </PageLink>
-                    </DropdownItem>
-                    <DropdownItem id="qsLogoutBtn">
-                      <AnchorLink href="/api/auth/logout" icon="power-off" testId="navbar-logout-desktop">
-                        Log out
-                      </AnchorLink>
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              )}
-            </Nav>
+  <nav className="bg-white shadow">
+    <div className="container mx-auto px-6 py-3">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center">
+          <a className="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700" href="/">
+            Helpert
+          </a>
+          <button
+            className="md:hidden rounded-lg focus:outline-none focus:shadow-outline-purple ml-4"
+            onClick={toggle}
+            data-testid="navbar-toggle"
+          >
+            <svg fill="currentColor" viewBox="0 0 20 20" className="w-6 h-6">
+              <path
+                className={isOpen ? 'hidden' : 'block'}
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M3 5h14a1 1 0 110 2H3a1 1 0 110-2zm0 5h14a1 1 0 110 2H3a1 1 0 110-2zm0 5h14a1 1 0 110 2H3a1 1 0 110-2z"
+              ></path>
+              <path
+                className={isOpen ? 'block' : 'hidden'}
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M10 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm-7.293 7.293a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L10 6.414l-4.293 4.293a1 1 0 01-1.414 0z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div className={isOpen ? 'flex' : 'hidden md:flex'}>
+          <div className="flex flex-col md:flex-row md:mx-6">
+            <a
+              href="/"
+              className="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0"
+              testId="navbar-home"
+            >
+              Home
+            </a>
+            {user && (
+              <>
+                <a
+                  href="/csr"
+                  className="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0"
+                  testId="navbar-csr"
+                >
+                  Client-side rendered page
+                </a>
+                <a
+                  href="/ssr"
+                  className="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0"
+                  testId="navbar-ssr"
+                >
+                  Server-side rendered page
+                </a>
+                <a
+                  href="/external"
+                  className="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0"
+                  testId="navbar-external"
+                >
+                  External API
+                </a>
+              </>
+            )}
+          </div>
+          <div className="flex items-center">
             {!isLoading && !user && (
-              <Nav className="d-md-none" navbar>
-                <AnchorLink
-                  href="/api/auth/login"
-                  className="btn btn-primary btn-block"
-                  tabIndex={0}
-                  testId="navbar-login-mobile">
-                  Log in
-                </AnchorLink>
-              </Nav>
+              <a
+                href="/api/auth/login"
+                className="btn btn-primary text-gray-800 btn-margin"
+                tabIndex={0}
+                testId="navbar-login-desktop"
+                colo
+              >
+                Log in
+              </a>
             )}
             {user && (
-              <Nav
-                id="nav-mobile"
-                className="d-md-none justify-content-between"
-                navbar
-                data-testid="navbar-menu-mobile">
-                <NavItem>
-                  <span className="user-info">
-                    <img
-                      src={user.picture}
-                      alt="Profile"
-                      className="nav-user-profile d-inline-block rounded-circle mr-3"
-                      width="50"
-                      height="50"
-                      decode="async"
-                      data-testid="navbar-picture-mobile"
-                    />
-                    <h6 className="d-inline-block" data-testid="navbar-user-mobile">
+              <div className="relative">
+                <button
+                  className="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
+                  id="user-menu"
+                  aria-label="User menu"
+                  aria-haspopup="true"
+                  data-testid="navbar-menu-desktop"
+                >
+                  <img
+                    className="h-8 w-8 rounded-full"
+                    src={user.picture}
+                    alt="Profile"
+                    data-testid="navbar-picture-desktop"
+                  />
+                </button>
+                <div
+                  className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg"
+                  aria-labelledby="user-menu"
+                  role="menu"
+                >
+                  <div className="py-1 rounded-md bg-white shadow-xs">
+                    <div className="block px-4 py-2 text-xs text-gray-400">
                       {user.name}
-                    </h6>
-                  </span>
-                </NavItem>
-                <NavItem>
-                  <PageLink href="/profile" icon="user" testId="navbar-profile-mobile">
-                    Profile
-                  </PageLink>
-                </NavItem>
-                <NavItem id="qsLogoutBtn">
-                  <AnchorLink
-                    href="/api/auth/logout"
-                    className="btn btn-link p-0"
-                    icon="power-off"
-                    testId="navbar-logout-mobile">
-                    Log out
-                  </AnchorLink>
-                </NavItem>
-              </Nav>
+                    </div>
+                    <a
+                      href="/profile"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      testId="navbar-profile-desktop"
+                    >
+                      Profile
+                    </a>
+                    <a
+                      href="/api/auth/logout"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      testId="navbar-logout-desktop"
+                    >
+                      Log out
+                    </a>
+                  </div>
+                </div>
+              </div>
             )}
-          </Collapse>
-        </Container>
-      </Navbar>
+          </div>
+        </div>
+      </div>
     </div>
+  </nav>
+</div>
   );
 };
 

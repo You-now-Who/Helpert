@@ -12,7 +12,7 @@ initFontAwesome();
 export default function App({ Component, pageProps }) {
   return (
     <UserProvider>
-      <Layout>
+      <Layout >
         <Component {...pageProps} />
       </Layout>
     </UserProvider>

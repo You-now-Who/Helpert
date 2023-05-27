@@ -1,3 +1,6 @@
 module.exports = {
-  poweredByHeader: false
+  images: {
+    domains: ['www.topuniversities.com'],
+  },
+  poweredByHeader: false,
 };
