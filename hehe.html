@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dictionary Search</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Dictionary Search</h1>
+    
+    <form id="searchForm">
+      <div class="form-group">
+        <label for="searchInput" class="my-2">Enter a word:</label>
+        <input type="text" class="form-control" id="searchInput" placeholder="Enter a word">
+      </div>
+      <button type="submit" class="btn btn-primary my-3">Search</button>
+    </form>
+    
+    <div id="resultContainer" style="display: none;">
+      <h2 id="wordTitle"></h2>
+      <p id="wordDefinition"></p>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#searchForm').submit(function(event) {
+        event.preventDefault();
+        
+        var word = $('#searchInput').val();
+        
+        $.get('https://api.dictionaryapi.dev/api/v2/entries/en/' + word, function(data) {
+          var definition = data[0].meanings[0].definitions[0].definition;
+          
+          $('#wordTitle').text(word);
+          $('#wordDefinition').text(definition);
+          $('#resultContainer').show();
+        }).fail(function() {
+          $('#wordTitle').text('Error');
+          $('#wordDefinition').text('No definition found for the word: ' + word);
+          $('#resultContainer').show();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
