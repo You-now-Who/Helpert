@@ -16,4 +16,6 @@ let firebase_app = getApps().length === 0 ? initializeApp(clientCredentials) : g
 
 const database = getDatabase(firebase_app);
 
+console.log(database, "database")
+
 export {firebase_app, database};

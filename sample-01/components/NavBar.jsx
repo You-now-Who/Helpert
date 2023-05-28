@@ -1,21 +1,6 @@
 import React, { useState } from 'react';
-import {
-  Collapse,
-  Container,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from 'reactstrap';
-import { useUser } from '@auth0/nextjs-auth0/client';
 
-import PageLink from './PageLink';
-import AnchorLink from './AnchorLink';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -111,10 +96,12 @@ const NavBar = () => {
                   <img
                     className="h-8 w-8 rounded-full"
                     src={user.picture}
+                    onClick={toggle}
                     alt="Profile"
                     data-testid="navbar-picture-desktop"
                   />
                 </button>
+                { isOpen && (
                 <div
                   className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg"
                   aria-labelledby="user-menu"
@@ -140,6 +127,7 @@ const NavBar = () => {
                     </a>
                   </div>
                 </div>
+                )}
               </div>
             )}
           </div>
