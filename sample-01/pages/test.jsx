@@ -25,7 +25,7 @@ const CollegesPage = () => {
     <div>
       <h1>Table</h1>
 
-        {/* {console.log(colleges)} */}
+        {/* {console.log(database)} */}
         <College colleges={colleges}/>
 
     </div>
