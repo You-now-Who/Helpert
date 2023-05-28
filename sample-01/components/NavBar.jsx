@@ -69,6 +69,20 @@ const NavBar = () => {
                 >
                   Your Applications
                 </a>
+                <a
+                  href="/schedule"
+                  className="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0"
+                  testId="navbar-external"
+                >
+                  Schedule
+                </a>
+                <a
+                  href="/cover-letter/page"
+                  className="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0"
+                  testId="navbar-external"
+                >
+                  Cover Letter
+                </a>
               </>
             )}
           </div>
