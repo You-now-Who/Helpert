@@ -125,7 +125,7 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="bg-white ">
+      <section className="bg-white">
         <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
             <div className="font-light text-gray-500 sm:text-lg ">
                 <h2 className="mb-4 text-4xl font-extrabold text-gray-900 ">Deciding a college is hard.</h2>

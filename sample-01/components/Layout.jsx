@@ -15,7 +15,7 @@ const Helpert = ({ children }) => {
       </Head>
       <main id="app" className="flex flex-col h-screen bg-gray-100" data-testid="helpert">
         <NavBar />
-        <Container className="">{children}</Container>
+        <Container className="mx-auto">{children}</Container>
         <Footer />
         {/* <button onClick={toggleColorMode}>Toggle {colorMode === 'light' ? 'Dark' : 'Light'} Mode</button> */}
       </main>

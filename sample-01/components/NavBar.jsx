@@ -49,11 +49,11 @@ const NavBar = () => {
             {user && (
               <>
                 <a
-                  href="/csr"
+                  href="/form/list"
                   className="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0"
                   testId="navbar-csr"
                 >
-                  Client-side rendered page
+                  Applications
                 </a>
                 <a
                   href="/ssr"
