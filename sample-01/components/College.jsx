@@ -28,7 +28,7 @@ const College = ({ colleges }) => {
           <tr
           className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-gray-200">
           <td className="whitespace-nowrap px-6 py-4 text-gray-800">{college.rank_display}</td>
-          <td className="whitespace-nowrap px-6 py-4 font-medium text-gray-600">{college.university}</td>
+          <td className="whitespace-nowrap px-6 py-4 font-medium text-gray-600">{college.label}</td>
           <td className="whitespace-nowrap px-6 py-4">{college.score}</td>
           <td className="whitespace-nowrap px-6 py-4 text-gray-700 italic">{college.city}, {college.country}</td>
           <td className="whitespace-nowrap px-6 py-4">{college.type}</td>

@@ -56,18 +56,18 @@ const NavBar = () => {
                   Applications
                 </a>
                 <a
-                  href="/ssr"
+                  href="/explore"
                   className="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0"
                   testId="navbar-ssr"
                 >
-                  Server-side rendered page
+                  Explore Colleges
                 </a>
                 <a
-                  href="/external"
+                  href="/form/your-forms"
                   className="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0"
                   testId="navbar-external"
                 >
-                  External API
+                  Your Applications
                 </a>
               </>
             )}

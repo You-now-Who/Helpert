@@ -13,7 +13,6 @@ export default function Index() {
 
   const { user, error, isLoading } = useUser();
   
-  // console.log(database);
 
   if (user !== undefined){
     
